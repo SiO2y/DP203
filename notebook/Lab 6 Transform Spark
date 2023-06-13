@@ -1,6 +1,7 @@
 {
-	"name": "Spark Transform",
+	"name": "Lab 6 Transform Spark",
 	"properties": {
+		"description": "DP-203T00-A Data Engineering on Microsoft Azure (2023) [No Azure Pass Required], Lab 06",
 		"nbformat": 4,
 		"nbformat_minor": 2,
 		"bigDataPool": {
