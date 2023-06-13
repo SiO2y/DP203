@@ -1,5 +1,5 @@
 {
-	"name": "Analyze Internet Sales",
+	"name": "Lab 8 Analyze Internet Sales",
 	"properties": {
 		"content": {
 			"query": "SELECT  d.CalendarYear AS Year,\n        SUM(i.SalesAmount) AS InternetSalesAmount\nFROM FactInternetSales AS i\nJOIN DimDate AS d ON i.OrderDateKey = d.DateKey\nGROUP BY d.CalendarYear\nORDER BY Year;",
