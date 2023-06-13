@@ -2,7 +2,7 @@
 	"name": "Lab 8 Analyze Internet Sales",
 	"properties": {
 		"content": {
-			"query": "SELECT  d.CalendarYear AS Year,\n        SUM(i.SalesAmount) AS InternetSalesAmount\nFROM FactInternetSales AS i\nJOIN DimDate AS d ON i.OrderDateKey = d.DateKey\nGROUP BY d.CalendarYear\nORDER BY Year;",
+			"query": "SELECT  d.CalendarYear AS Year,\n        pc.EnglishProductCategoryName AS ProductCategory,\n        g.EnglishCountryRegionName AS Region,\n        SUM(i.SalesAmount) AS InternetSalesAmount\nFROM FactInternetSales AS i\nJOIN DimDate AS d ON i.OrderDateKey = d.DateKey\nJOIN DimCustomer AS c ON i.CustomerKey = c.CustomerKey\nJOIN DimGeography AS g ON c.GeographyKey = g.GeographyKey\nJOIN DimProduct AS p ON i.ProductKey = p.ProductKey\nJOIN DimProductSubcategory AS ps ON p.ProductSubcategoryKey = ps.ProductSubcategoryKey\nJOIN DimProductCategory AS pc ON ps.ProductCategoryKey = pc.ProductCategoryKey\nGROUP BY d.CalendarYear, pc.EnglishProductCategoryName, g.EnglishCountryRegionName\nORDER BY Year, ProductCategory, Region;",
 			"metadata": {
 				"language": "sql"
 			},
