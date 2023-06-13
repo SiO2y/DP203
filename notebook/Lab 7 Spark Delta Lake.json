@@ -19,7 +19,7 @@
 				"spark.dynamicAllocation.enabled": "false",
 				"spark.dynamicAllocation.minExecutors": "2",
 				"spark.dynamicAllocation.maxExecutors": "2",
-				"spark.autotune.trackingId": "4bfdc23c-ef57-4332-92a2-81aba5276837"
+				"spark.autotune.trackingId": "8b813da4-9b17-48b3-b198-12ec371bd05e"
 			}
 		},
 		"metadata": {
@@ -66,7 +66,7 @@
 					")\r\n",
 					"display(df.limit(10))"
 				],
-				"execution_count": 1
+				"execution_count": 26
 			},
 			{
 				"cell_type": "code",
@@ -85,7 +85,7 @@
 					"delta_table_path = \"/delta/products-delta\"\r\n",
 					"df.write.format(\"delta\").save(delta_table_path)"
 				],
-				"execution_count": 2
+				"execution_count": 27
 			},
 			{
 				"cell_type": "code",
@@ -115,7 +115,7 @@
 					"# View the updated data as a dataframe\r\n",
 					"deltaTable.toDF().show(10)"
 				],
-				"execution_count": 3
+				"execution_count": 29
 			},
 			{
 				"cell_type": "code",
@@ -134,7 +134,7 @@
 					"new_df = spark.read.format(\"delta\").load(delta_table_path)\r\n",
 					"new_df.show(10)"
 				],
-				"execution_count": 4
+				"execution_count": 30
 			},
 			{
 				"cell_type": "code",
@@ -152,7 +152,7 @@
 				"source": [
 					"deltaTable.history(10).show(20, False, True)"
 				],
-				"execution_count": 5
+				"execution_count": 31
 			},
 			{
 				"cell_type": "code",
@@ -172,7 +172,7 @@
 					"spark.sql(\"CREATE TABLE AdventureWorks.ProductsExternal USING DELTA LOCATION '{0}'\".format(delta_table_path))\r\n",
 					"spark.sql(\"DESCRIBE EXTENDED AdventureWorks.ProductsExternal\").show(truncate=False)"
 				],
-				"execution_count": 6
+				"execution_count": 32
 			},
 			{
 				"cell_type": "code",
@@ -198,7 +198,7 @@
 					"\r\n",
 					"SELECT * FROM ProductsExternal;"
 				],
-				"execution_count": 7
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -217,7 +217,7 @@
 					"df.write.format(\"delta\").saveAsTable(\"AdventureWorks.ProductsManaged\")\r\n",
 					"spark.sql(\"DESCRIBE EXTENDED AdventureWorks.ProductsManaged\").show(truncate=False)"
 				],
-				"execution_count": 8
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -243,7 +243,7 @@
 					"\r\n",
 					"SELECT * FROM ProductsManaged;"
 				],
-				"execution_count": 9
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
@@ -269,7 +269,7 @@
 					"\r\n",
 					"SHOW TABLES;"
 				],
-				"execution_count": 10
+				"execution_count": null
 			},
 			{
 				"cell_type": "code",
