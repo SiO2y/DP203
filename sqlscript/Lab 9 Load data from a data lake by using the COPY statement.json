@@ -1,0 +1,17 @@
+{
+	"name": "Lab 9 Load data from a data lake by using the COPY statement",
+	"properties": {
+		"content": {
+			"query": "SELECT COUNT(1) \nFROM dbo.StageProduct\n--0 records\n\nCOPY INTO dbo.StageProduct\n    (ProductID, ProductName, ProductCategory, Color, Size, ListPrice, Discontinued)\nFROM 'https://datalakexxxxxx.blob.core.windows.net/files/data/Product.csv'\nWITH\n(\n    FILE_TYPE = 'CSV',\n    MAXERRORS = 0,\n    IDENTITY_INSERT = 'OFF',\n    FIRSTROW = 2 --Skip header row\n);\n\n\nSELECT COUNT(1) \nFROM dbo.StageProduct\n--11 records\n\nCOPY INTO dbo.StageCustomer\n(GeographyKey, CustomerAlternateKey, Title, FirstName, MiddleName, LastName, NameStyle, BirthDate, \nMaritalStatus, Suffix, Gender, EmailAddress, YearlyIncome, TotalChildren, NumberChildrenAtHome, EnglishEducation, \nSpanishEducation, FrenchEducation, EnglishOccupation, SpanishOccupation, FrenchOccupation, HouseOwnerFlag, \nNumberCarsOwned, AddressLine1, AddressLine2, Phone, DateFirstPurchase, CommuteDistance)\nFROM 'https://datalakenw03t41.dfs.core.windows.net/files/data/Customer.csv'\nWITH\n(\nFILE_TYPE = 'CSV'\n,MAXERRORS = 5\n,FIRSTROW = 2 -- skip header row\n,ERRORFILE = 'https://datalakenw03t41.dfs.core.windows.net/files/'\n);\n\nSELECT *\nFROM dbo.StageCustomer\n--8 records",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqlnw03t41",
+				"poolName": "sqlnw03t41"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}
