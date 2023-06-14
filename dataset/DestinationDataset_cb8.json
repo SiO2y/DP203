@@ -1,0 +1,16 @@
+{
+	"name": "DestinationDataset_cb8",
+	"properties": {
+		"annotations": [],
+		"type": "SqlPoolTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "",
+			"table": "products"
+		},
+		"sqlPool": {
+			"referenceName": "sqlcwlgyeq",
+			"type": "SqlPoolReference"
+		}
+	}
+}
