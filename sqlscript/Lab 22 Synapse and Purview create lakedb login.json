@@ -1,0 +1,18 @@
+{
+	"name": "Lab 22 Synapse and Purview create lakedb login",
+	"properties": {
+		"description": "Synapse and Purview (Expected Duration 2 hours)\nDP-203T00-A Data Engineering on Microsoft Azure (2023) [No Azure Pass Required], Lab 22\nhttps://qa.learnondemand.net/Lab/57605?classId=543689",
+		"content": {
+			"query": "CREATE LOGIN purviewcwlgyeq FROM EXTERNAL PROVIDER;\nGO\n\nCREATE USER purviewcwlgyeq FOR LOGIN purviewcwlgyeq;\nGO\n\nALTER ROLE db_datareader ADD MEMBER purviewcwlgyeq;\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "lakedb",
+				"poolName": "Built-in"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}

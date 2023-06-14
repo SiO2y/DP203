@@ -1,0 +1,18 @@
+{
+	"name": "Lab 22 Synapse and Purview create sql login",
+	"properties": {
+		"description": "Synapse and Purview (Expected Duration 2 hours)\nDP-203T00-A Data Engineering on Microsoft Azure (2023) [No Azure Pass Required], Lab 22\nhttps://qa.learnondemand.net/Lab/57605?classId=543689",
+		"content": {
+			"query": "CREATE USER purviewcwlgyeq FROM EXTERNAL PROVIDER;\nGO\n\nEXEC sp_addrolemember 'db_datareader', purviewcwlgyeq;\nGO",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "sqlcwlgyeq",
+				"poolName": "sqlcwlgyeq"
+			},
+			"resultLimit": -1
+		},
+		"type": "SqlQuery"
+	}
+}
